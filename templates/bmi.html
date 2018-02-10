@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel='stylesheet' type='text/css' href="{{url_for('static', filename='style.css') }}">
+    <title>BMI calculator</title>
+  </head>
+  <body>
+<div class=container-fluid>
+      <div class="col-sm-4">
+        <a href= "{{url_for('rootpage')}}" style="margin-top:50px" class="pure-button pure-button-primary" role="button">Home</a>
+      </div>
+      <div class="col-sm-4 text-center" style="background-color:beige; border:solid 2px black; margin-top:20px;">
+      <h1>This is a BMI calculator</h1>
+    <p Please enter your stats below:</p>
+    <form class="pure-form" method="POST" action="/bmi">
+      Weight in pounds:<br>
+      <input type="text" name="userweight"><br>
+      Height in inches:<br>
+      <input type="text" name="userinches"><br>
+      <button style= "margin-top:20px; margin-bottom:20px;" type="submit" class="pure-button pure-button-primary">Submit</button>
+    </form>
+    <br>
+    {% if weight and inches %}
+    <p>Your weight is {{weight}} pounds.</p><br>
+    <p>Your height is {{inches}} inches.</p><br>
+    <p>Your BMI is {{BMI}}.</p><br>
+    {% endif %}
+</div>
+<div class="col-sm-4"></div>
+</div>
+
+  </body>
+</html>
